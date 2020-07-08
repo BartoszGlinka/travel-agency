@@ -18,7 +18,7 @@ const OrderOptionCheckboxes = ({values, key, setOptionValue, currentValue}) => (
   <div className={styles.checkboxes}>
     {values.map(value => (
       <label key={key} name={value.name}>
-        <input type="checkbox" value={value.id} checked={(currentValue === value.id)} key={key} onChange={event => setOptionValue(newValueSet(currentValue, value.id, event.currentTarget.checked))}></input>
+        <input type="checkbox" value={value.id} checked={(currentValue.includes(value.id))} key={key} onChange={event => setOptionValue(newValueSet(currentValue, value.id, event.currentTarget.checked))}></input>
         {value.name} ({formatPrice(value.price)})
       </label>
     ))}

@@ -7,7 +7,7 @@ import {formatPrice} from '../../../utils/formatPrice.js';
 const OrderSummary = ({tripCost, options}) => {
   const totalPrice = calculateTotal(formatPrice(tripCost),options);
   return (
-    <h2 className={styles.component}>Total: <strong>${totalPrice}</strong></h2>
+    <h2 className={styles.component}>Total: <strong>${(totalPrice).toFixed(2)}</strong></h2>
   );
 };
 

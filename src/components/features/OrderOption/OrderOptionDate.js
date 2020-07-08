@@ -5,12 +5,13 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import PropTypes from 'prop-types';
 
 
-const OrderOptionDate = ({id}) => (
-  <DatePicker selected={id} onChange={id} />
+const OrderOptionDate = ({ currentValue, setOptionValue }) => (
+  <DatePicker selected={currentValue} onChange={date => setOptionValue(date)} />
 );
 
 OrderOptionDate.propTypes = {
-  id: PropTypes.string,
+  setOptionValue: PropTypes.func,
+  currentValue: PropTypes.number,
 };
 
 export default OrderOptionDate;
