@@ -29,7 +29,7 @@ describe('Component TripSummary', () => {
     const expectedCost = '$139,398.25';
     const expectedDays = 14;
     
-    const component = shallow(<TripSummary tags={[]} id={`{expectedId}`} image='test' name={expectedName} cost={expectedCost} days={expectedDays} />);
+    const component = shallow(<TripSummary tags={[]} image='test' name={expectedName} cost={expectedCost} days={expectedDays} />);
     
     const title = component.find('.title');
     const details = component.find('.details span');
@@ -40,7 +40,7 @@ describe('Component TripSummary', () => {
   });
   
   it('should render correct tags', () => { 
-    const component = shallow(<TripSummary tags={['a', 'b', 'c']} id={`{expectedId}`} image='test' name='test' cost='324' days={1} />);
+    const component = shallow(<TripSummary tags={['a', 'b', 'c']} image='test' name='test' cost='324' days={1} />);
     
     const tags = component.find('.tags span');
     
@@ -50,7 +50,7 @@ describe('Component TripSummary', () => {
   });
   
   it('should throw error without required tags', () => {
-    const component = shallow(<TripSummary />);
+    const component = shallow(<TripSummary tags={['a', 'b', 'c']} />);
       
     expect(component).toBeTruthy();
   });
