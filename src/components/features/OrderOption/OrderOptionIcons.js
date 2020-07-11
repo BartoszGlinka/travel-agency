@@ -4,7 +4,7 @@ import {formatPrice} from '../../../utils/formatPrice.js';
 import Icon from '../../../components/common/Icon/Icon.js';
 import PropTypes from 'prop-types';
 
-const OrderOptionIcons = ({setOptionValue, currentValue, required, value}) => (
+const OrderOptionIcons = ({values, setOptionValue, currentValue, required}) => (
   <div className={styles.icon} >
     {required ? '' : (
       <div className={styles.icon + (currentValue === '' ? ' ' + styles.iconActive : '')} onClick={value => setOptionValue(value.name)}>
@@ -12,7 +12,7 @@ const OrderOptionIcons = ({setOptionValue, currentValue, required, value}) => (
         none
       </div>
     )}
-    {value.map(value => (
+    {values.map(value => (
       <div className={styles.icon + (currentValue === value.id ? ' ' + styles.iconActive : '')} key={value.id} onClick={() => { setOptionValue(value.id); }}>
         <Icon name={value.icon}></Icon>
         {value.name} ({formatPrice(value.price)})
@@ -27,6 +27,7 @@ OrderOptionIcons.propTypes = {
   setOptionValue: PropTypes.func,
   currentValue: PropTypes.string,
   required: PropTypes.bool,
+  values: PropTypes.node,
 };
 
 export default OrderOptionIcons;
