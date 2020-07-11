@@ -24,6 +24,7 @@ class App extends React.Component {
   static propTypes = {
     trips: PropTypes.array,
     setStates: PropTypes.func,
+    component: PropTypes.func,
   }
 
   constructor(props){
